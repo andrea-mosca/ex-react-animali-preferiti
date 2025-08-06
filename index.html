@@ -20,6 +20,34 @@
 
     <!-- my custom script js(loaded after body with "defer") -->
     <script src="./js/script.js" defer></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        const ListaAnimali = () => {
+            const animals = ["tigre", "gatto", "cane", "topo"]
+            return (
+                <details>
+                    <summary>Animali</summary>
+
+                    <ul>
+                        {animals.map((a, i) => (
+                            <li key={i}>{a}</li>
+                        ))}
+                    </ul>
+                </details>
+            )
+        }
+    </script>
+    <script type="text/babel">
+        const { createRoot } = ReactDOM;
+        const listaAnimali = document.querySelector(`.lista-animali`)
+        const root = createRoot(listaAnimali);
+        root.render(<ListaAnimali />)
+    </script>
+
 </head>
 
 <body>
